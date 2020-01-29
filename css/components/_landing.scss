@@ -1,0 +1,208 @@
+.landing-wrapper {
+    min-height: 100vh;
+    position: relative;
+    background-image: linear-gradient(to bottom, $color-primary 40%, $color-black 40%);
+    @include atMedium {
+        height: 100vh;
+        max-height: 100vh;
+        overflow: hidden;
+        background-image: linear-gradient(to right, $color-black 25%, $color-primary 25%);
+    }
+}
+
+.landing {
+    @include atMedium {
+        padding: 4.75rem 0;
+    }
+
+    &__copy {
+        text-align: center;
+        padding: 2.667rem 2.9167rem 3.5rem 2.9167rem;
+        @include atMedium {
+            padding: 0;
+            text-align: left;
+            position: fixed;
+            top: 50%;
+            left: calc(25% + 20vw);
+            transform: translateY(-50%);
+            padding-right: 11.875rem;
+        }
+
+        h1 {
+            font-family: $font-main;
+            font-size: 6.667rem;
+            line-height: 1;
+            font-weight: 900;
+            color: $color-black;
+            @include atMedium {
+                font-size: 9.375rem;
+                transform: translateX(-.625rem);
+            }
+        }
+
+        h2 {
+            font-family: $font-main;
+            font-size: 2.25rem;
+            line-height: 1;
+            color: $color-black;
+            font-weight: 700;
+            margin-top: 5px;
+            @include atMedium {
+                margin-top: 0;
+                font-size: 3.75rem;
+            }
+        }
+    }
+
+    &__form {
+        padding: .667rem;
+        background-color: $color-white;
+        border-radius: 4px;
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        margin-top: 2.5rem;
+        @include atMedium {
+            margin-top: 1.875rem;
+            padding: .625rem;
+            border-radius: 5px;
+            max-width: 26.875rem;
+        }
+
+        input {
+            flex: 1;
+            font-family: $font-main;
+            font-size: 1.083rem;
+            color: $color-black;
+            font-weight: 500;
+            padding: 0 .833rem;
+            @include atMedium {
+                font-size: 1.125rem;
+                padding: 0 .625rem;
+            }
+
+            &::placeholder {
+                color: $color-gray;
+            }
+        }
+
+        button {
+            background-color: $color-black;
+            color: $color-white;
+            font-family: $font-main;
+            font-size: .833rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: .8333rem;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all .25s;
+            backface-visibility: hidden;
+            position: relative;
+            overflow: hidden;
+            @include atMedium {
+                font-size: .8125rem;
+                padding: .625rem .9375rem;
+                border-radius: 4px;
+            }
+
+            span {
+                position: relative;
+                z-index: 1;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: -10px;
+                width: 125%;
+                height: 150%;
+                background-color: $color-primary;
+                transition: all .25s;
+                backface-visibility: hidden;
+                transform: translate(-100%, -50%);
+                border-radius: 3px;
+                @include atMedium {
+                    border-radius: 4px;
+                }
+            }
+
+            &:hover {
+                color: $color-black;
+                background-color: $color-primary;
+
+                &:before {
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+
+    &__confirmation,
+    &__error {
+        margin-top: 2.5rem;
+        display: none;
+        @include atMedium {
+            margin-top: 1.875rem;
+        }
+
+        h3 {
+            font-family: $font-main;
+            font-size: 1.333rem;
+            font-weight: 700;
+            color: $color-black;
+            margin-bottom: 1rem;
+            @include atMedium {
+                margin-bottom: 0;
+                font-size: 1.25rem;
+            }
+
+            span {
+                text-shadow: 0 2px 4px rgba($color-black, .21);
+            }
+        }
+
+        p {
+            font-family: $font-main;
+            font-size: 1rem;
+            font-weight: 500;
+            color: $color-black;
+        }
+    }
+
+    &__gallery {
+        padding: 0 3.333rem;
+        width: 90%;
+        margin: 0 auto;
+        @include atMedium {
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            width: 20%;
+            height: auto;
+            transform-origin: 100% 50%;
+            transform: translate(-25%, -50%) scale(1.5);
+        }
+        @include atLarge {
+            transform: translate(-25%, -50%) scale(1.25);
+        }
+        @include atExtralarge {
+            transform: translate(-25%, -50%) scale(1.1);
+        }
+        @include atHuge {
+            transform: translate(-25%, -50%);
+        }
+
+        .slick {
+            img,
+            &-slide {
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+}
